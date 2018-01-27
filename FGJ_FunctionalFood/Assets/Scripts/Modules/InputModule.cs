@@ -49,7 +49,6 @@ namespace MadLagBots
         private void SendInput(InputType input)
         {
             _acceptInput = false;
-            print($"Sending input with lag {_currentLag} seconds");
             if (visualizer != null)
             {
                 visualizer.VisualizeInput(input, _currentLag);

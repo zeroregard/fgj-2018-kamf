@@ -54,8 +54,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HammerBotPrefab: {fileID: 114269677954416066, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
     type: 2}
-  SpawnPointOne: {fileID: 0}
-  SpawnPointTwo: {fileID: 0}
+  _spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   UIManager: {fileID: 114579739797596342}
 --- !u!114 &114579739797596342
 MonoBehaviour:

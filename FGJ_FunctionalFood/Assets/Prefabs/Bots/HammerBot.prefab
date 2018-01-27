@@ -966,7 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a405c36639a4b9cbf28b1f12a56add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 500
+  thrust: 300
   torque: 500
   rb: {fileID: 54246622554813444}
   Weapon: {fileID: 114709792725758454}
@@ -1058,7 +1058,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1574391582
+  randomSeed: 292229262
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4419,7 +4419,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1918544895
+  randomSeed: -1393514899
   InitialModule:
     serializedVersion: 3
     enabled: 1

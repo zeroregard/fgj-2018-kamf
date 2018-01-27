@@ -61,13 +61,11 @@ namespace MadLagBots
         public void Attack(InputType input)
         {
             Weapon.TryAttack();
-            print($"Attack! input: {input}");
 
         }
 
         public void Turn(InputType input)
         {
-            print($"Turning! input: {input}, thrust: {thrust}");
             int dir = input == InputType.Left ? -1 : 1;
             rb.AddTorque(transform.up * torque * dir);
 
@@ -81,7 +79,6 @@ namespace MadLagBots
                 var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
                 var forwardNormalized = Vector3.Normalize(forwardInPlane);
                 var thrustNormalized = thrust * rb.mass;
-                //print($"Accelerating! input: {input}, thrust: {thrustNormalized}");
 
                 rb.AddForce(forwardNormalized * thrustNormalized);
 				if(rb.velocity.magnitude > _maxVelocity)
@@ -96,9 +93,8 @@ namespace MadLagBots
             var planeNormal = Vector3.up;
             var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
             var forwardNormalized = Vector3.Normalize(forwardInPlane);
-            var thrustNormalized = thrust * rb.mass;
+            var thrustNormalized = thrust * rb.mass * 0.5f;
 
-            print($"Reversing! input: {input}, thrust: {thrustNormalized}");
 
             rb.AddForce(-forwardNormalized * thrustNormalized);
         }
