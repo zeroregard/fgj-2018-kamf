@@ -7,7 +7,7 @@ namespace MadLagBots
 	public class RoboModule : MonoBehaviour {
 
 		public float thrust;
-		public float torque = 5;
+		public float torque;
 		public Rigidbody rb;
 
 		public void HandleInput(InputType input) 
