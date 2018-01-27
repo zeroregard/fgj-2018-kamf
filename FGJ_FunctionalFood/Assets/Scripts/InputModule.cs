@@ -39,25 +39,7 @@ namespace MadLagBots
             // this could be moved to RoboModule
             if (roboMovement != null)
             {
-
-                switch (input)
-                {
-                    case InputType.Attack:
-                        roboMovement.Attack(InputType.Attack);
-                        break;
-                    case InputType.Back:
-                        roboMovement.Accelerate(InputType.Back);
-                        break;
-                    case InputType.Forward:
-                        roboMovement.Accelerate(InputType.Forward);
-                        break;
-                    case InputType.Left:
-                        roboMovement.Turn(InputType.Left);
-                        break;
-                    case InputType.Forward:
-                        roboMovement.Turn(InputType.Right);
-                        break;
-                }
+                roboMovement.HandleInput(input);
             }
 
         }
