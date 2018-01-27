@@ -345,12 +345,6 @@ Prefab:
       propertyPath: _spawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1630235699}
-    - target: {fileID: 114106298974627972, guid: cf9b16f7ed1cc4bc89bbcd8189c48e21,
-        type: 2}
-      propertyPath: HammerBotPrefab
-      value: 
-      objectReference: {fileID: 114269677954416066, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf9b16f7ed1cc4bc89bbcd8189c48e21, type: 2}
   m_IsPrefabParent: 0
