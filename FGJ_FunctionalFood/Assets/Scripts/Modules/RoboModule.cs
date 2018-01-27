@@ -20,6 +20,14 @@ namespace MadLagBots
         public InputModule InputModule => GetComponent<InputModule>();
         public HealthModule HealthModule => GetComponent<HealthModule>();
 
+		public void Start() {
+			// move the center of mass a biiiit down
+			// this very reliably prevents the thing from flipping over
+			// sometimes the thing might behave weirdly
+			// if it's too weird make it closer to 0, or just 0
+			rb.centerOfMass = new Vector3(0, -0.07f, 0);
+		}
+
         public void Update()
         {
             if (rb.position.y < -10)
