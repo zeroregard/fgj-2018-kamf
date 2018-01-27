@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 342462406}
   - component: {fileID: 342462405}
   - component: {fileID: 342462407}
+  - component: {fileID: 342462410}
   m_Layer: 5
   m_Name: InputStream
   m_TagString: Untagged
@@ -277,6 +278,20 @@ MonoBehaviour:
   _inputKeyPrefab: {fileID: 114832548323704886, guid: 64cf0ccd6ef2d4402972752a70458453,
     type: 2}
   _rect: {fileID: 342462404}
+--- !u!114 &342462410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342462403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f13c03946762442397a7f4765fe3d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: 1
+  roboMovement: {fileID: 0}
+  visualizer: {fileID: 342462407}
 --- !u!1 &1222098851
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1247962414}
   - component: {fileID: 1247962413}
-  - component: {fileID: 1247962412}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -388,24 +402,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1247962412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1247962411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1247962413
 MonoBehaviour:
   m_ObjectHideFlags: 0

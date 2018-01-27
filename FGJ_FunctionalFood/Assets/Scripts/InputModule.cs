@@ -23,6 +23,7 @@ namespace MadLagBots
         public InputStreamVisualizer visualizer;
         private const float _inputDelayMs = 200;
         private bool _acceptInput = true;
+		private float _lagS = 3.0f;
 
         void Update()
         {
@@ -37,7 +38,7 @@ namespace MadLagBots
             _acceptInput = false;
             if (visualizer != null)
             {
-                visualizer.VisualizeInput(input);
+                visualizer.VisualizeInput(input, _lagS);
             }
             if (roboMovement != null)
             {

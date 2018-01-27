@@ -8,14 +8,15 @@ namespace MadLagBots
     {
 		[SerializeField] private InputKey _inputKeyPrefab;
 		[SerializeField] private RectTransform _rect;
-        private float _lagMs = 3000f; // move this somewhere else, like InputModule
 
-
-        public void VisualizeInput(InputType input)
+        public void VisualizeInput(InputType input, float lagSeconds)
         {
 			string c = InputToString(input);
 			var key = Instantiate(_inputKeyPrefab);
-			key.Init(c, _lagMs, 0, _rect.rect.width);
+			var keyRect = key.GetComponent<RectTransform>();
+			keyRect.SetParent(_rect);
+			keyRect.anchoredPosition = Vector2.zero;
+			key.Init(c, lagSeconds, 0, _rect.rect.width);
         }
 
         private string InputToString(InputType input)
