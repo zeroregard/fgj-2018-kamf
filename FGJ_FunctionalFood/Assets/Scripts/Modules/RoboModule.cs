@@ -108,7 +108,7 @@ namespace MadLagBots
             rb.mass = rb.mass - 0.1f;
 			InputModule.AdjustLag(rb.mass);
 			Debug.Log("Emitting particles");
-			sparkEmitter.Emit(1000);
+			sparkEmitter.Play();
         }
     }
 }
