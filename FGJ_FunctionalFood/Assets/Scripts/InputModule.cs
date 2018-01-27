@@ -70,7 +70,7 @@ namespace MadLagBots
                 }
                 else
                 {
-                    roboMovement.Accelerate(InputType.Back);
+                    roboMovement.Reverse(InputType.Back);
                 }
             }
 
