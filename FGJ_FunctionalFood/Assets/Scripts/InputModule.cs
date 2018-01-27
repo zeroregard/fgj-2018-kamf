@@ -18,8 +18,9 @@ namespace MadLagBots
     public class InputModule : MonoBehaviour
     {
         [Range(1, 4)]
-        public int Player;
+        public int Player = 1;
         public RoboModule roboMovement;
+        public InputStreamVisualizer visualizer;
         private const float _inputDelayMs = 200;
         private bool _acceptInput = true;
 
@@ -29,6 +30,36 @@ namespace MadLagBots
             {
                 GetInput();
             }
+        }
+
+        private void SendInput(InputType input)
+        {
+            visualizer.VisualizeInput(input);
+            _acceptInput = false;
+            // this could be moved to RoboModule
+            if (roboMovement != null)
+            {
+
+                switch (input)
+                {
+                    case InputType.Attack:
+                        roboMovement.Attack(InputType.Attack);
+                        break;
+                    case InputType.Back:
+                        roboMovement.Accelerate(InputType.Back);
+                        break;
+                    case InputType.Forward:
+                        roboMovement.Accelerate(InputType.Forward);
+                        break;
+                    case InputType.Left:
+                        roboMovement.Turn(InputType.Left);
+                        break;
+                    case InputType.Forward:
+                        roboMovement.Turn(InputType.Right);
+                        break;
+                }
+            }
+
         }
 
         private void GetInput()
@@ -48,29 +79,28 @@ namespace MadLagBots
             }
             else if (attack)
             {
-                roboMovement.Attack(InputType.Attack);
-                _acceptInput = false;
+                SendInput(InputType.Attack);
             }
             else if (hoz != 0)
             {
                 if (hoz > 0)
                 {
-                    roboMovement.Turn(InputType.Right);
+                    SendInput(InputType.Right);
                 }
                 else
                 {
-                    roboMovement.Turn(InputType.Left);
+                    SendInput(InputType.Left);
                 }
             }
             else if (ver != 0)
             {
                 if (ver > 0)
                 {
-                    roboMovement.Accelerate(InputType.Forward);
+                    SendInput(InputType.Forward);
                 }
                 else
                 {
-                    roboMovement.Accelerate(InputType.Back);
+                    SendInput(InputType.Back);
                 }
             }
 
