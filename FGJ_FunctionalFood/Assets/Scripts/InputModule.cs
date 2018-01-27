@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
+
 namespace MadLagBots
 {
     public enum InputType
@@ -18,6 +19,7 @@ namespace MadLagBots
     {
         [Range(1, 4)]
         public int Player;
+        public RoboModule roboMovement;
         private const float _inputDelayMs = 200;
         private bool _acceptInput = true;
 
@@ -46,29 +48,29 @@ namespace MadLagBots
             }
             else if (attack)
             {
-                SendInput(InputType.Attack);
+                roboMovement.Attack(InputType.Attack);
                 _acceptInput = false;
             }
             else if (hoz != 0)
             {
                 if (hoz > 0)
                 {
-                    SendInput(InputType.Right);
+                    roboMovement.Turn(InputType.Right);
                 }
                 else
                 {
-                    SendInput(InputType.Left);
+                    roboMovement.Turn(InputType.Left);
                 }
             }
             else if (ver != 0)
             {
                 if (ver > 0)
                 {
-                    SendInput(InputType.Forward);
+                    roboMovement.Accelerate(InputType.Forward);
                 }
                 else
                 {
-                    SendInput(InputType.Back);
+                    roboMovement.Accelerate(InputType.Back);
                 }
             }
 
@@ -79,12 +81,6 @@ namespace MadLagBots
                     _acceptInput = true;
                 });
             }
-        }
-
-        private void SendInput(InputType input)
-        {
-            // show stuff on screen
-            // send to robo module
         }
     }
 }
