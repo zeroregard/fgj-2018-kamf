@@ -42,7 +42,7 @@ namespace MadLagBots
             }
             if (roboMovement != null)
             {
-                roboMovement.HandleInput(input);
+                roboMovement.HandleInput(input, _lagS);
             }
 
         }
