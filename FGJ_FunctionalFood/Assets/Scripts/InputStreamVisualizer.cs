@@ -9,7 +9,7 @@ namespace MadLagBots
 		[SerializeField] private InputKey _inputKeyPrefab;
 		[SerializeField] private RectTransform _rect;
 
-        private float _startWidth = 384f;
+        private float _startWidth = 500f;
 
         public void VisualizeInput(InputType input, float lagSeconds)
         {

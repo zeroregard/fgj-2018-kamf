@@ -20,6 +20,8 @@ namespace MadLagBots
         public InputModule InputModule => GetComponent<InputModule>();
         public HealthModule HealthModule => GetComponent<HealthModule>();
 
+		public List<MeshRenderer> MeshesToColor;
+
 		public void Start() {
 			// move the center of mass a biiiit down
 			// this very reliably prevents the thing from flipping over
@@ -35,6 +37,23 @@ namespace MadLagBots
                 HealthModule.Die();
             }
         }
+
+		void FixUpsideDown()
+		{
+			var up = transform.up;
+			if(up.y < 0)
+			{
+				
+			}
+		}
+
+		public void SetColor(Color color)
+		{
+			foreach(var m in MeshesToColor)
+			{
+				m.material.color = color;
+			}
+		}
 
         public void DeathAnimation() // amazing tortouise animation
         {
@@ -124,9 +143,8 @@ namespace MadLagBots
 
         public void ReduceMass()
         {
-            rb.mass = rb.mass - 0.1f;
+            rb.mass = rb.mass * (2/3f);
             InputModule.AdjustLag(rb.mass);
-            Debug.Log("Emitting particles");
             sparkEmitter.Play();
         }
     }

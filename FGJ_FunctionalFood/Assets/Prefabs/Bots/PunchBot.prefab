@@ -814,6 +814,10 @@ MonoBehaviour:
   rb: {fileID: 54384596693073644}
   Weapon: {fileID: 114741715140945668}
   sparkEmitter: {fileID: 198600984045966252}
+  MeshesToColor:
+  - {fileID: 23983792223197368}
+  - {fileID: 23018203768781534}
+  - {fileID: 23803338752071720}
 --- !u!114 &114671517185928420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -915,7 +919,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 342464543
+  randomSeed: -1047256843
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4276,7 +4280,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2134912682
+  randomSeed: 881624394
   InitialModule:
     serializedVersion: 3
     enabled: 1

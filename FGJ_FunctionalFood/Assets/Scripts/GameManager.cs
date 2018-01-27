@@ -14,7 +14,9 @@ namespace MadLagBots
         public UIManager UIManager;
 
         private static int[] Players = new int[] { 1, 2 };
+        private static Color[] PlayerColors = new Color[] { Color.cyan, Color.yellow, Color.magenta, Color.green };
         private List<RoboModule> _playerInstances = new List<RoboModule>();
+        private bool _playerWon = false;
 
         // Use this for initialization
         void Start()
@@ -29,7 +31,8 @@ namespace MadLagBots
                 var playa = Instantiate(HammerBotPrefab, _spawnPoints[p - 1].position, Quaternion.identity);
                 _playerInstances.Add(playa);
                 playa.GetComponent<InputModule>().Player = p;
-                UIManager.AddVisualizer(playa);
+                playa.SetColor(PlayerColors[p-1]);
+                UIManager.AddVisualizer(playa, PlayerColors[p-1]);
             }
         }
 
@@ -44,11 +47,15 @@ namespace MadLagBots
 
         void PlayerWon(RoboModule player)
         {
-            print($"PLAYER {player.InputModule.Player} WON!");
-            Observable.Timer(System.TimeSpan.FromSeconds(3)).Subscribe(_ =>
+            if (_playerWon == false)
             {
-                SceneManager.LoadScene("Main");
-            });
+                _playerWon = true;
+                print($"PLAYER {player.InputModule.Player} WON!");
+                Observable.Timer(System.TimeSpan.FromSeconds(3)).Subscribe(_ =>
+                {
+                    SceneManager.LoadScene("Main");
+                });
+            }
         }
     }
 }

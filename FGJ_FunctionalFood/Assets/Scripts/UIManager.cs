@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MadLagBots
 {
@@ -15,7 +16,7 @@ namespace MadLagBots
 
 		private float BeginWidth = 384;
 
-		public void AddVisualizer(RoboModule player)
+		public void AddVisualizer(RoboModule player, Color color)
 		{
 			_canvas = FindObjectOfType<Canvas>();
 			var playerNumber = player.InputModule.Player;
@@ -27,6 +28,7 @@ namespace MadLagBots
 			rect.anchorMin = VisualizerMins[playerNumber - 1];
 			rect.anchorMax = VisualizerMaxs[playerNumber - 1];
 			rect.anchoredPosition = VisualizerPositions[playerNumber - 1];
+			rect.gameObject.GetComponent<Image>().color = color * 0.75f;
 			player.InputModule.visualizer = visualization;
 		}
     }
