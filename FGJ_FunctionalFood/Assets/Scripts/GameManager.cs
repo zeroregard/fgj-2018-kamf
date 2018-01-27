@@ -47,7 +47,7 @@ namespace MadLagBots
             print($"PLAYER {player.InputModule.Player} WON!");
             Observable.Timer(System.TimeSpan.FromSeconds(3)).Subscribe(_ =>
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("Main");
             });
         }
     }

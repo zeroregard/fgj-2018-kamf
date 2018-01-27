@@ -73,7 +73,7 @@ InputManager:
     m_Name: Player2_Left
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton:
+    negativeButton: 
     positiveButton: h
     altNegativeButton: 
     altPositiveButton: 
@@ -89,7 +89,7 @@ InputManager:
     m_Name: Player2_Right
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton:
+    negativeButton: 
     positiveButton: k
     altNegativeButton: 
     altPositiveButton: 
