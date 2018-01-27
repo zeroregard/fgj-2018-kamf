@@ -10,7 +10,7 @@ namespace MadLagBots
 		public float torque;
 		public Rigidbody rb;
 
-		public void HandleInput(InputType input) 
+		public void HandleInput(InputType input, float _lagS) 
 		{
 			switch (input)
 			{
