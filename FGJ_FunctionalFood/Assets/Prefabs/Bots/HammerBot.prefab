@@ -121,7 +121,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4048908852560130}
-  - component: {fileID: 114180123527892800}
   - component: {fileID: 114709792725758454}
   m_Layer: 0
   m_Name: weapon_hammer
@@ -724,21 +723,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.5, z: 0.6}
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!114 &114180123527892800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1510160427359226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 999ba03c153464e23ba78d1af47d4168, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hammerRotation: {fileID: 4029991396137022}
-  _hammerDown: {x: 0, y: 0, z: -78}
-  _hammerUp: {x: 0, y: 0, z: 0}
-  _hurtbox: {fileID: 0}
 --- !u!114 &114221686909492584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,7 +764,7 @@ MonoBehaviour:
   thrust: 500
   torque: 500
   rb: {fileID: 54246622554813444}
-  Weapon: {fileID: 114180123527892800}
+  Weapon: {fileID: 114709792725758454}
 --- !u!114 &114709792725758454
 MonoBehaviour:
   m_ObjectHideFlags: 1
