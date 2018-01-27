@@ -13,6 +13,9 @@ namespace MadLagBots
 		public Rigidbody rb;
 		public WeaponBase Weapon;
 
+		private InputModule _inputModule;
+		public InputModule InputModule => GetComponent<InputModule>();
+
 		public void HandleInput(InputType input, float lagSeconds) 
 		{
 			Observable.Timer(TimeSpan.FromSeconds(lagSeconds)).TakeUntilDestroy(this).Subscribe(_ => {

@@ -7,43 +7,45 @@ namespace MadLagBots
     public class GameManager : MonoBehaviour
     {
         public RoboModule HammerBotPrefab;
-		public Transform SpawnPointOne;
-		public Transform SpawnPointTwo;
+        public Transform SpawnPointOne;
+        public Transform SpawnPointTwo;
+        public UIManager UIManager;
 
-		RoboModule player1;
-		RoboModule player2;
+        RoboModule player1;
+        RoboModule player2;
 
         // Use this for initialization
         void Start()
         {
-			BeginGame();
+            BeginGame();
         }
 
         void BeginGame()
         {
-			player1 = Instantiate(HammerBotPrefab, SpawnPointOne.position, Quaternion.identity);
-			player2 = Instantiate(HammerBotPrefab, SpawnPointTwo.position, Quaternion.identity);
-
-			player1.GetComponent<InputModule>().Player = 1;
-			player2.GetComponent<InputModule>().Player = 2;
+            player1 = Instantiate(HammerBotPrefab, SpawnPointOne.position, Quaternion.identity);
+            player2 = Instantiate(HammerBotPrefab, SpawnPointTwo.position, Quaternion.identity);
+            player1.GetComponent<InputModule>().Player = 1;
+            player2.GetComponent<InputModule>().Player = 2;
+            UIManager.AddVisualizer(player1);
+            UIManager.AddVisualizer(player2);
         }
 
-		public void PlayerDied(RoboModule player)
-		{
-			print ("PLAYER DIED");
-			var winner = player == player1 ? player2 : player1;
-			PlayerWon(winner);
-		}
+        public void PlayerDied(RoboModule player)
+        {
+            print("PLAYER DIED");
+            var winner = player == player1 ? player2 : player1;
+            PlayerWon(winner);
+        }
 
-		void PlayerWon(RoboModule player)
-		{
-			print ("PLAYER WON");
-		}
+        void PlayerWon(RoboModule player)
+        {
+            print("PLAYER WON");
+        }
 
-		public void GameOver()
-		{
-			// stuff
-		}
-		
+        public void GameOver()
+        {
+            // stuff
+        }
+
     }
 }
