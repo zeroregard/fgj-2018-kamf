@@ -16,6 +16,14 @@ namespace MadLagBots
 
         private InputModule _inputModule;
         public InputModule InputModule => GetComponent<InputModule>();
+		public HealthModule HealthModule => GetComponent<HealthModule>();
+
+		public void Update()
+		{
+			if (rb.position.y < -10) {
+				HealthModule.Die();
+			}
+		}
 
         private float _maxVelocity = 5;
 

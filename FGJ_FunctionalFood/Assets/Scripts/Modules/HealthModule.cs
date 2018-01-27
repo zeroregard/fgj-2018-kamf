@@ -31,7 +31,7 @@ namespace MadLagBots
 			}
 		}
 
-		private void Die()
+		public void Die()
 		{
 			Destroy(gameObject);
 			var manager = FindObjectOfType<GameManager> ();
