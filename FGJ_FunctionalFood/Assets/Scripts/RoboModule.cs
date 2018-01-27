@@ -17,11 +17,11 @@ namespace MadLagBots
 				case InputType.Attack:
 					Attack(InputType.Attack);
 					break;
-				case InputType.Back:
+				case InputType.Forward:
 					Accelerate(InputType.Back);
 					break;
-				case InputType.Forward:
-					Accelerate(InputType.Forward);
+				case InputType.Back:
+					Reverse(InputType.Forward);
 					break;
 				case InputType.Left:
 					Turn(InputType.Left);
