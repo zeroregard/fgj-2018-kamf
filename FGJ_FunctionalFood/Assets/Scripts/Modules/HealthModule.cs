@@ -23,7 +23,7 @@ namespace MadLagBots
 			_health -= damage;
 			print($"I'm Hurting! New health: {_health}");
 
-			robo.SetMass();
+			robo.ReduceMass();
 
 			if(_health <= 0)
 			{

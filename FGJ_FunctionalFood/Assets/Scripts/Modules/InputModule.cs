@@ -23,7 +23,13 @@ namespace MadLagBots
         public InputStreamVisualizer visualizer;
         private const float _inputDelayMs = 200;
         private bool _acceptInput = true;
-		private float _baseLagSeconds = 1.5f;
+        private float _baseLagSeconds = 1.5f;
+        private float _currentLag;
+
+        void Start()
+        {
+            _currentLag = _baseLagSeconds;
+        }
 
         void Update()
         {
@@ -33,18 +39,24 @@ namespace MadLagBots
             }
         }
 
+        public void AdjustLag(float mass)
+        {
+            _currentLag = _baseLagSeconds * roboMovement.rb.mass;
+            var t = Mathf.InverseLerp(0, _baseLagSeconds, _currentLag);
+            visualizer.SetDelayVisualizer(t);
+        }
+
         private void SendInput(InputType input)
         {
             _acceptInput = false;
-            var adjustedLagSeconds = _baseLagSeconds * roboMovement.rb.mass;
-            print($"Sending input with lag {adjustedLagSeconds} seconds");
+            print($"Sending input with lag {_currentLag} seconds");
             if (visualizer != null)
             {
-                visualizer.VisualizeInput(input, adjustedLagSeconds);
+                visualizer.VisualizeInput(input, _currentLag);
             }
             if (roboMovement != null)
             {
-                roboMovement.HandleInput(input, adjustedLagSeconds);
+                roboMovement.HandleInput(input, _currentLag);
             }
 
         }

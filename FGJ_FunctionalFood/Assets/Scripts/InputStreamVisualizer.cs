@@ -9,6 +9,8 @@ namespace MadLagBots
 		[SerializeField] private InputKey _inputKeyPrefab;
 		[SerializeField] private RectTransform _rect;
 
+        private float _startWidth = 384f;
+
         public void VisualizeInput(InputType input, float lagSeconds)
         {
 			string c = InputToString(input);
@@ -17,6 +19,13 @@ namespace MadLagBots
 			keyRect.SetParent(_rect);
 			keyRect.anchoredPosition = Vector2.zero;
 			key.Init(c, lagSeconds, 0, _rect.rect.width);
+        }
+
+        public void SetDelayVisualizer(float t)
+        {
+            Debug.Log(t);
+            var width = Mathf.Lerp(0, _startWidth, t);
+            _rect.sizeDelta = new Vector2(width, _rect.sizeDelta.y);
         }
 
         private string InputToString(InputType input)
