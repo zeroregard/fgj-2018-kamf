@@ -13,6 +13,7 @@ namespace MadLagBots
         public float torque;
         public Rigidbody rb;
         public WeaponBase Weapon;
+        public ParticleSystem sparkEmitter;
 
         private InputModule _inputModule;
         public InputModule InputModule => GetComponent<InputModule>();
@@ -29,11 +30,6 @@ namespace MadLagBots
 
         // Particles
        	ParticleSystem exhaust;
-
-        void Start () {
-            exhaust = GetComponent<ParticleSystem>();
-        }
-
 
         public void HandleInput(InputType input, float lagSeconds)
         {
@@ -111,6 +107,8 @@ namespace MadLagBots
         {
             rb.mass = rb.mass - 0.1f;
 			InputModule.AdjustLag(rb.mass);
+			Debug.Log("Emitting particles");
+			sparkEmitter.Emit(1000);
         }
     }
 }
