@@ -11,6 +11,7 @@ namespace MadLagBots
 		public float thrust;
 		public float torque;
 		public Rigidbody rb;
+		public WeaponBase Weapon;
 
 		public void HandleInput(InputType input, float _lagS) 
 		{
@@ -40,7 +41,9 @@ namespace MadLagBots
 
 		public void Attack (InputType input) 
 		{
+			Weapon.TryAttack();
 			print($"Attack! input: {input}");
+
 		}
 
 		public void Turn (InputType input) 

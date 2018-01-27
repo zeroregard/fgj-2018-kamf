@@ -741,11 +741,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23169442835251196, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
-        type: 2}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4815865128352258, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.3205839
@@ -778,30 +773,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114709792725758454, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
-        type: 2}
-      propertyPath: _hurtbox
-      value: 
-      objectReference: {fileID: 1537772277}
     - target: {fileID: 114221686909492584, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
         type: 2}
       propertyPath: visualizer
       value: 
       objectReference: {fileID: 1997406788}
-    - target: {fileID: 23169442835251196, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
-        type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: c0492d1a9dd314f3ab43104eb74a206b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1537772277 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114246190754445538, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
-    type: 2}
-  m_PrefabInternal: {fileID: 1537772276}
-  m_Script: {fileID: 11500000, guid: cacfa707716cb4b76a1d57ae06fc7792, type: 3}
 --- !u!1 &1547774130
 GameObject:
   m_ObjectHideFlags: 0

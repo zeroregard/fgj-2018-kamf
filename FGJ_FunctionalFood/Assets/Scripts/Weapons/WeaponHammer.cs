@@ -12,16 +12,6 @@ namespace MadLagBots
         [SerializeField] private Vector3 _hammerUp;
         [SerializeField] private HurtBox _hurtbox;
 
-        public bool TestAttack = true;
-
-        void Update()
-        {
-            if (TestAttack)
-            {
-                TryAttack();
-            }
-        }
-
         protected override void DoAttack()
         {
             var downTime = _cooldown / 3f;

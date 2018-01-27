@@ -431,6 +431,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100006, guid: 2b3a28503854a486a8f238e511b32e81, type: 3}
+  - {fileID: 2100000, guid: c0492d1a9dd314f3ab43104eb74a206b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -738,7 +739,6 @@ MonoBehaviour:
   _hammerDown: {x: 0, y: 0, z: -78}
   _hammerUp: {x: 0, y: 0, z: 0}
   _hurtbox: {fileID: 0}
-  TestAttack: 0
 --- !u!114 &114221686909492584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,6 +780,7 @@ MonoBehaviour:
   thrust: 500
   torque: 500
   rb: {fileID: 54246622554813444}
+  Weapon: {fileID: 114180123527892800}
 --- !u!114 &114709792725758454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -794,8 +795,7 @@ MonoBehaviour:
   _hammerRotation: {fileID: 4029991396137022}
   _hammerDown: {x: 0, y: 0, z: -78}
   _hammerUp: {x: 0, y: 0, z: 0}
-  _hurtbox: {fileID: 0}
-  TestAttack: 1
+  _hurtbox: {fileID: 114246190754445538}
 --- !u!114 &114863779918279284
 MonoBehaviour:
   m_ObjectHideFlags: 1
