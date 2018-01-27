@@ -5,19 +5,19 @@ licenseType: Pro
 SketchUpImporter:
   generateBackFace: 0
   mergeCoplanarFaces: 0
-  selectedNodes: 000000000100000002000000030000000400000005000000
+  selectedNodes: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
   assetHash:
     serializedVersion: 2
-    Hash: 4d4bca32506fb79313947b49bcc72eae
+    Hash: e0a18853532aebab190df1d5be6cf4f0
   longitude: -105.242139
   latitude: 40.018309
   northCorrection: -0
   fileUnit: 0
   sketchUpImportData:
     defaultCamera:
-      position: {x: -1.3230733, y: 1.1417903, z: -0.35234636}
-      lookAt: {x: 17.69596, y: -14.178242, z: 2.046363}
-      up: {x: 0.6193973, y: 0.7811814, z: 0.07811932}
+      position: {x: -0.34417808, y: 1.5859035, z: 1.413961}
+      lookAt: {x: 3.9051414, y: -15.328995, z: -15.849015}
+      up: {x: 0.1647539, y: 0.7244796, z: -0.6693172}
       fov: 45
       aspectRatio: 0
       orthoSize: 1
@@ -29,19 +29,28 @@ SketchUpImporter:
     100002: Group 1
     100004: Group 2
     100006: Group 4
+    100008: Group 6
+    100010: Group 8
     400000: //RootNode
     400002: Group 1
     400004: Group 2
     400006: Group 4
+    400008: Group 6
+    400010: Group 8
     2100000: '[Metal Steel Textured White]'
     2100002: '[Aluminum]'
     2100004: _1
     2300000: Group 2
     2300002: Group 4
+    2300004: Group 6
+    2300006: Group 8
     3300000: Group 2
     3300002: Group 4
+    3300004: Group 6
+    3300006: Group 8
     4300000: Mesh Group 2
     4300002: Mesh Group 4
+    4300004: Mesh Group 6
   externalObjects: {}
   materials:
     importMaterials: 1
