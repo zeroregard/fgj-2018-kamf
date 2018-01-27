@@ -23,12 +23,12 @@ namespace MadLagBots
 			p2.GetComponent<InputModule>().Player = 2;
         }
 
-		void PlayerDied(RoboModule player)
+		public void PlayerDied(RoboModule player)
 		{
-			// stuff	
+			print ("PLAYER DIED");
 		}
 
-		void GameOver()
+		public void GameOver()
 		{
 			// stuff
 		}
