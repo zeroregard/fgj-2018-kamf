@@ -23,7 +23,7 @@ namespace MadLagBots
         public InputStreamVisualizer visualizer;
         private const float _inputDelayMs = 200;
         private bool _acceptInput = true;
-		private float _lagS = 1.5f;
+		private float _baseLagSeconds = 1.5f;
 
         void Update()
         {
@@ -36,13 +36,15 @@ namespace MadLagBots
         private void SendInput(InputType input)
         {
             _acceptInput = false;
+            var adjustedLagSeconds = _baseLagSeconds * roboMovement.rb.mass;
+            print($"Sending input with lag {adjustedLagSeconds} seconds");
             if (visualizer != null)
             {
-                visualizer.VisualizeInput(input, _lagS);
+                visualizer.VisualizeInput(input, adjustedLagSeconds);
             }
             if (roboMovement != null)
             {
-                roboMovement.HandleInput(input, _lagS);
+                roboMovement.HandleInput(input, adjustedLagSeconds);
             }
 
         }
