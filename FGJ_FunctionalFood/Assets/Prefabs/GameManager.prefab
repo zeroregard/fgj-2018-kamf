@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713847390228036}
   - component: {fileID: 114106298974627972}
+  - component: {fileID: 114579739797596342}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55,3 +56,37 @@ MonoBehaviour:
     type: 2}
   SpawnPointOne: {fileID: 0}
   SpawnPointTwo: {fileID: 0}
+  UIManager: {fileID: 114579739797596342}
+--- !u!114 &114579739797596342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331652978860306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0719fbf6ce6d4c3191095b5db8bc25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _visualizerPrefab: {fileID: 114521146225023964, guid: a930bee6bf1904ceba3b6f67ddff0d0e,
+    type: 2}
+  VisualizerPositions:
+  - {x: 32, y: 32}
+  - {x: -32, y: 32}
+  - {x: 32, y: -32}
+  - {x: -32, y: -32}
+  VisualizerScales:
+  - {x: 1, y: 1}
+  - {x: -1, y: 1}
+  - {x: 1, y: 1}
+  - {x: -1, y: 1}
+  VisualizerMins:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  VisualizerMaxs:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}

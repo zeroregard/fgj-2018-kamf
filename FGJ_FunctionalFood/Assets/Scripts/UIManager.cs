@@ -15,13 +15,9 @@ namespace MadLagBots
 
 		private float BeginWidth = 384;
 
-		void Start()
-		{
-			_canvas = FindObjectOfType<Canvas>();
-		}
-
 		public void AddVisualizer(RoboModule player)
 		{
+			_canvas = FindObjectOfType<Canvas>();
 			var playerNumber = player.InputModule.Player;
 			var visualization = Instantiate(_visualizerPrefab);
 			var rect = visualization.GetComponent<RectTransform>();
