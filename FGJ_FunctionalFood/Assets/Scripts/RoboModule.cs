@@ -9,19 +9,22 @@ namespace MadLagBots
 		public float thrust;
 		public Rigidbody rb;
 
-		private void Attack (InputType input) 
+		public void Attack (InputType input) 
 		{
-			print("Attack!", input);
+			print("Attack!");
+			print(input);
 		}
 
-		private void Turn (InputType input) 
+		public void Turn (InputType input) 
 		{
-			print("Turning!", input);
+			print("Turning!");
+			print(input);
 		}
 
-		private void Accelerate (InputType input) 
+		public void Accelerate (InputType input) 
 		{
-			print("Accelerating!", input);
+			print("Accelerating!");
+			print(input);
 			// rb.AddForce(transform.forward * thrust);
 		}
 	}
