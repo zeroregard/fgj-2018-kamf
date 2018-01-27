@@ -20,8 +20,8 @@ namespace MadLagBots
 
 		public void Hurt(float damage)
 		{
-			print("I'm Hurting");
 			_health -= damage;
+			print($"I'm Hurting! New health: {_health}");
 
 			robo.SetMass();
 

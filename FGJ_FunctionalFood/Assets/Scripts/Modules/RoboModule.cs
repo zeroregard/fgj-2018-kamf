@@ -13,9 +13,9 @@ namespace MadLagBots
 		public Rigidbody rb;
 		public WeaponBase Weapon;
 
-		public void HandleInput(InputType input, float _lagS) 
+		public void HandleInput(InputType input, float lagSeconds) 
 		{
-			Observable.Timer(TimeSpan.FromSeconds(_lagS)).TakeUntilDestroy(this).Subscribe(_ => {
+			Observable.Timer(TimeSpan.FromSeconds(lagSeconds)).TakeUntilDestroy(this).Subscribe(_ => {
 				switch (input)
 				{
 					case InputType.Attack:
