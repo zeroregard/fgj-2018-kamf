@@ -33,9 +33,10 @@ namespace MadLagBots
 
 		public void Die()
 		{
-			Destroy(gameObject);
 			var manager = FindObjectOfType<GameManager> ();
+			robo.DeathAnimation();
 			manager.PlayerDied (robo);
+
 		}
 	}
 }

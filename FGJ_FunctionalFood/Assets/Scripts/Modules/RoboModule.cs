@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using DG.Tweening;
 
 namespace MadLagBots
 {
@@ -25,6 +26,14 @@ namespace MadLagBots
             {
                 HealthModule.Die();
             }
+        }
+
+        public void DeathAnimation() // amazing tortouise animation
+        {
+            rb.isKinematic = true;
+            transform
+                .DORotate(new Vector3(180,180,0), 1.5f, RotateMode.Fast)
+                .SetEase(Ease.OutQuad);
         }
 
         private float _maxVelocity = 5;
