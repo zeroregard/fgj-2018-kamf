@@ -17,19 +17,20 @@ namespace MadLagBots
 
         private InputModule _inputModule;
         public InputModule InputModule => GetComponent<InputModule>();
-		public HealthModule HealthModule => GetComponent<HealthModule>();
+        public HealthModule HealthModule => GetComponent<HealthModule>();
 
-		public void Update()
-		{
-			if (rb.position.y < -10) {
-				HealthModule.Die();
-			}
-		}
+        public void Update()
+        {
+            if (rb.position.y < -10)
+            {
+                HealthModule.Die();
+            }
+        }
 
         private float _maxVelocity = 5;
 
         // Particles
-       	ParticleSystem exhaust;
+        ParticleSystem exhaust;
 
         public void HandleInput(InputType input, float lagSeconds)
         {
@@ -71,20 +72,25 @@ namespace MadLagBots
 
         }
 
+        void Forward(float t)
+        {
+            var planeNormal = Vector3.up;
+            var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
+            var forwardNormalized = Vector3.Normalize(forwardInPlane);
+            var thrustNormalized = t * rb.mass;
+
+            rb.AddForce(forwardNormalized * thrustNormalized);
+            if (rb.velocity.magnitude > _maxVelocity)
+            {
+                rb.velocity = rb.velocity * 0.95f;
+            }
+        }
+
         public void Accelerate(InputType input)
         {
             if (rb.velocity.magnitude < _maxVelocity)
             {
-                var planeNormal = Vector3.up;
-                var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
-                var forwardNormalized = Vector3.Normalize(forwardInPlane);
-                var thrustNormalized = thrust * rb.mass;
-
-                rb.AddForce(forwardNormalized * thrustNormalized);
-				if(rb.velocity.magnitude > _maxVelocity)
-				{
-					rb.velocity = rb.velocity * 0.95f;
-				}
+                Forward(thrust);
             }
         }
 
@@ -102,9 +108,9 @@ namespace MadLagBots
         public void ReduceMass()
         {
             rb.mass = rb.mass - 0.1f;
-			InputModule.AdjustLag(rb.mass);
-			Debug.Log("Emitting particles");
-			sparkEmitter.Play();
+            InputModule.AdjustLag(rb.mass);
+            Debug.Log("Emitting particles");
+            sparkEmitter.Play();
         }
     }
 }

@@ -23,7 +23,6 @@ namespace MadLagBots
 
         public void SetDelayVisualizer(float t)
         {
-            Debug.Log(t);
             var width = Mathf.Lerp(0, _startWidth, t);
             _rect.sizeDelta = new Vector2(width, _rect.sizeDelta.y);
         }
