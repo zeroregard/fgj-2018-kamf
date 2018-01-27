@@ -34,9 +34,11 @@ namespace MadLagBots
 
         private void SendInput(InputType input)
         {
-            visualizer.VisualizeInput(input);
             _acceptInput = false;
-            // this could be moved to RoboModule
+            if (visualizer != null)
+            {
+                visualizer.VisualizeInput(input);
+            }
             if (roboMovement != null)
             {
                 roboMovement.HandleInput(input);
