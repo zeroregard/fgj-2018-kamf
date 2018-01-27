@@ -27,6 +27,14 @@ namespace MadLagBots
 
         private float _maxVelocity = 5;
 
+        // Particles
+       	ParticleSystem exhaust;
+
+        void Start () {
+            exhaust = GetComponent<ParticleSystem>();
+        }
+
+
         public void HandleInput(InputType input, float lagSeconds)
         {
             Observable.Timer(TimeSpan.FromSeconds(lagSeconds)).TakeUntilDestroy(this).Subscribe(_ =>
