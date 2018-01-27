@@ -13,7 +13,7 @@ namespace MadLagBots
         public List<Transform> _spawnPoints;
         public UIManager UIManager;
 
-        private static int[] Players = new int[] { 1, 2 };
+        private static int[] Players = new int[] { 1, 2, 3, 4 };
         private static Color[] PlayerColors = new Color[] { Color.cyan, Color.yellow, Color.magenta, Color.green };
         private List<RoboModule> _playerInstances = new List<RoboModule>();
         private bool _playerWon = false;
