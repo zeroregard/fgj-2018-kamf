@@ -52,8 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f799fc7dd06c042abb51d4fdf38c0e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HammerBotPrefab: {fileID: 114269677954416066, guid: 8412d7c2d32da47b5b0fc1ff2ddadbee,
-    type: 2}
+  HammerBotPrefab: {fileID: 0}
   _spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
