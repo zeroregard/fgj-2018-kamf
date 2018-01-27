@@ -36,7 +36,7 @@ namespace MadLagBots
             var p = $"Player{Player}";
             var hoz = Input.GetAxis($"{p}_Horizontal");
             var ver = Input.GetAxis($"{p}_Vertical");
-            var attack = Input.GetKey($"{p}_Attack");
+            var attack = Input.GetButton($"{p}_Attack");
 
             if (hoz == 0 && ver == 0 && !attack)
             {
