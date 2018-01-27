@@ -56,20 +56,26 @@ namespace MadLagBots
 
 		public void Accelerate (InputType input) 
 		{
-			print($"Accelerating! input: {input}, thrust: {thrust}");
-
 			var planeNormal = Vector3.up;
 			var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
 			var forwardNormalized = Vector3.Normalize(forwardInPlane);
+			var thrustNormalized = thrust * rb.mass;
 
-			rb.AddForce(forwardNormalized * thrust);
+			print($"Accelerating! input: {input}, thrust: {thrustNormalized}");
+
+			rb.AddForce(forwardNormalized * thrustNormalized);
 		}
 
 		public void Reverse (InputType input) 
 		{
-			print($"Reversing! input: {input}, thrust: {thrust}");
+			var planeNormal = Vector3.up;
+			var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
+			var forwardNormalized = Vector3.Normalize(forwardInPlane);
+			var thrustNormalized = thrust * rb.mass;
 
-			rb.AddForce(-transform.forward * thrust);
+			print($"Reversing! input: {input}, thrust: {thrustNormalized}");
+
+			rb.AddForce(-forwardNormalized * thrustNormalized);
 		}
 
 		public void SetMass ()
