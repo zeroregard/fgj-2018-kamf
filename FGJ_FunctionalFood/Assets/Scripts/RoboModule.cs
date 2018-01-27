@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 namespace MadLagBots
 {
@@ -12,24 +14,28 @@ namespace MadLagBots
 
 		public void HandleInput(InputType input, float _lagS) 
 		{
-			switch (input)
-			{
-				case InputType.Attack:
-					Attack(InputType.Attack);
-					break;
-				case InputType.Forward:
-					Accelerate(InputType.Back);
-					break;
-				case InputType.Back:
-					Reverse(InputType.Forward);
-					break;
-				case InputType.Left:
-					Turn(InputType.Left);
-					break;
-				case InputType.Right:
-					Turn(InputType.Right);
-					break;
-			}
+			Observable.Timer(TimeSpan.FromSeconds(_lagS)).TakeUntilDestroy(this).Subscribe(_ => {
+				switch (input)
+				{
+					case InputType.Attack:
+						Attack(InputType.Attack);
+						break;
+					case InputType.Forward:
+						Accelerate(InputType.Back);
+						break;
+					case InputType.Back:
+						Reverse(InputType.Forward);
+						break;
+					case InputType.Left:
+						Turn(InputType.Left);
+						break;
+					case InputType.Right:
+						Turn(InputType.Right);
+						break;
+				}
+			});
+
+			
 		}
 
 		public void Attack (InputType input) 

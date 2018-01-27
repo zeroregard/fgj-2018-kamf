@@ -23,7 +23,7 @@ namespace MadLagBots
         public InputStreamVisualizer visualizer;
         private const float _inputDelayMs = 200;
         private bool _acceptInput = true;
-		private float _lagS = 3.0f;
+		private float _lagS = 1.5f;
 
         void Update()
         {
