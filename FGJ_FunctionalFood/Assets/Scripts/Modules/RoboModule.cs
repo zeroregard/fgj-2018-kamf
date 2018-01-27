@@ -58,7 +58,11 @@ namespace MadLagBots
 		{
 			print($"Accelerating! input: {input}, thrust: {thrust}");
 
-			rb.AddForce(transform.forward * thrust);
+			var planeNormal = Vector3.up;
+			var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
+			var forwardNormalized = Vector3.Normalize(forwardInPlane);
+
+			rb.AddForce(forwardNormalized * thrust);
 		}
 
 		public void Reverse (InputType input) 
