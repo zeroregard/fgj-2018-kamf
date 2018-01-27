@@ -71,5 +71,10 @@ namespace MadLagBots
 
 			rb.AddForce(-transform.forward * thrust);
 		}
+
+		public void SetMass ()
+		{
+			rb.mass = rb.mass-0.1f;
+		}
 	}
 }

@@ -2,28 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthModule : MonoBehaviour
+namespace MadLagBots
 {
-	public float MaxHealth = 100f;
-	private float _health;
-
-	void Start()
+	public class HealthModule : MonoBehaviour
 	{
-		_health = MaxHealth;
-	}
-	
+		public float MaxHealth = 100f;
+		private float _health;
+		private RoboModule robo;
 
-	public void Hurt(float damage)
-	{
-		_health -= damage;
-		if(_health <= 0)
+		void Start()
 		{
-			Die();
-		}
-	}
+			robo = GetComponent<RoboModule>();
+			_health = MaxHealth;
 
-	private void Die()
-	{
-		Destroy(gameObject);
+		}
+		
+
+		public void Hurt(float damage)
+		{
+			print("I'm Hurting");
+			_health -= damage;
+
+			robo.SetMass();
+
+			if(_health <= 0)
+			{
+				Die();
+			}
+		}
+
+		private void Die()
+		{
+			Destroy(gameObject);
+		}
 	}
 }
