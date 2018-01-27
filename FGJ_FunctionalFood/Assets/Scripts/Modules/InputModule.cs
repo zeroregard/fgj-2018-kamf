@@ -21,7 +21,7 @@ namespace MadLagBots
         public int Player = 1;
         public RoboModule roboMovement;
         public InputStreamVisualizer visualizer;
-        private const float _inputDelayMs = 200;
+        private const float _inputIntervalMs = 300;
         private bool _acceptInput = true;
         private float _baseLagSeconds = 1.5f;
         private float _currentLag;
@@ -63,15 +63,16 @@ namespace MadLagBots
         private void GetInput()
         {
             var p = $"Player{Player}";
-            var hoz = Input.GetAxis($"{p}_Horizontal");
+            var left = Input.GetButtonDown($"{p}_Left");
+            var right = Input.GetButtonDown($"{p}_Right");
             var ver = Input.GetAxis($"{p}_Vertical");
             var attack = Input.GetButton($"{p}_Attack");
 
-            if (hoz == 0 && ver == 0 && !attack)
+            if (!left && !right && ver == 0 && !attack)
             {
                 return;
             }
-            if (attack && hoz != 0 && ver != 0)
+            if (attack && (right || left) && ver != 0)
             {
                 print("Honk!");
             }
@@ -79,16 +80,14 @@ namespace MadLagBots
             {
                 SendInput(InputType.Attack);
             }
-            else if (hoz != 0)
+            else if (left)
             {
-                if (hoz > 0)
-                {
-                    SendInput(InputType.Right);
-                }
-                else
-                {
-                    SendInput(InputType.Left);
-                }
+
+                SendInput(InputType.Left);
+            }
+            else if (right)
+            {
+                SendInput(InputType.Right);
             }
             else if (ver != 0)
             {
@@ -104,7 +103,7 @@ namespace MadLagBots
 
             if (_acceptInput == false)
             {
-                Observable.Timer(System.TimeSpan.FromMilliseconds(_inputDelayMs)).Subscribe(_ =>
+                Observable.Timer(System.TimeSpan.FromMilliseconds(_inputIntervalMs)).Subscribe(_ =>
                 {
                     _acceptInput = true;
                 });
