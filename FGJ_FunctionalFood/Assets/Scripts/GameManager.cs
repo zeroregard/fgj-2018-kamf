@@ -12,6 +12,7 @@ namespace MadLagBots
         public RoboModule HammerBotPrefab;
         public List<Transform> _spawnPoints;
         public UIManager UIManager;
+        public CameraManager _camMan;
 
         private static int[] Players = new int[] { 1, 2, 3, 4 };
         private static Color[] PlayerColors = new Color[] { Color.cyan, Color.yellow, Color.magenta, Color.green };
@@ -22,7 +23,6 @@ namespace MadLagBots
         void Start()
         {
             BeginGame();
-    
         }
 
         private void ShuffleTransforms() // uiks, wat
@@ -50,6 +50,7 @@ namespace MadLagBots
                 playa.GetComponent<InputModule>().Player = p;
                 playa.SetColor(PlayerColors[p-1]);
                 UIManager.AddVisualizer(playa, PlayerColors[p-1]);
+                _camMan.Init(_playerInstances);
   //              playa.GetComponent<HealthModule>().Die();
             }
         }
@@ -61,6 +62,7 @@ namespace MadLagBots
             {
                 PlayerWon(_playerInstances.FirstOrDefault());
             }
+            _camMan.PlayerDied(player);
         }
 
         void PlayerWon(RoboModule player)
