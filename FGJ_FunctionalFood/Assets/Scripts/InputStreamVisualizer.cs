@@ -4,21 +4,33 @@ using UnityEngine;
 
 namespace MadLagBots
 {
+    public class SpriteRotation
+    {
+        public Sprite Sprite;
+        public float ZRotation;
+    }
     public class InputStreamVisualizer : MonoBehaviour
     {
 		[SerializeField] private InputKey _inputKeyPrefab;
 		[SerializeField] private RectTransform _rect;
+        [SerializeField] private Sprite _arrow;
+        [SerializeField] private Sprite _attack;
 
-        private float _startWidth = 500f;
+        private float _startWidth = 800f;
+
+        void Start()
+        {
+            SetDelayVisualizer(1);
+        }
 
         public void VisualizeInput(InputType input, float lagSeconds)
         {
-			string c = InputToString(input);
+			SpriteRotation sr = InputToString(input);
 			var key = Instantiate(_inputKeyPrefab);
 			var keyRect = key.GetComponent<RectTransform>();
 			keyRect.SetParent(_rect);
 			keyRect.anchoredPosition = Vector2.zero;
-			key.Init(c, lagSeconds, 0, _rect.rect.width);
+			key.Init(sr.Sprite, lagSeconds, 0, _rect.rect.width, sr.ZRotation);
         }
 
         public void SetDelayVisualizer(float t)
@@ -27,22 +39,22 @@ namespace MadLagBots
             _rect.sizeDelta = new Vector2(width, _rect.sizeDelta.y);
         }
 
-        private string InputToString(InputType input)
+        private SpriteRotation InputToString(InputType input)
         {
             switch (input)
             {
                 case InputType.Attack:
-                    return "A";
+                    return new SpriteRotation(){Sprite=_attack, ZRotation = 0};
                 case InputType.Left:
-                    return "<";
+                    return new SpriteRotation(){Sprite=_arrow, ZRotation = 90};
                 case InputType.Right:
-                    return ">";
+                    return new SpriteRotation(){Sprite=_arrow, ZRotation = -90};
                 case InputType.Forward:
-                    return "^";
+                    return new SpriteRotation(){Sprite=_arrow, ZRotation = 0};
                 case InputType.Back:
-                    return "v";
+                    return new SpriteRotation(){Sprite=_arrow, ZRotation = 180};
             }
-			return "";
+			return new SpriteRotation(){Sprite=_attack, ZRotation = 0};
         }
     }
 }

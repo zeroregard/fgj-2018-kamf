@@ -43,6 +43,8 @@ MonoBehaviour:
   _inputKeyPrefab: {fileID: 114832548323704886, guid: 64cf0ccd6ef2d4402972752a70458453,
     type: 2}
   _rect: {fileID: 224226551242862158}
+  _arrow: {fileID: 21300000, guid: 3cda6238465a44773a9c27e30fab69eb, type: 3}
+  _attack: {fileID: 21300000, guid: 554d8c136fa6a4bdb95f5a1a225ffa01, type: 3}
 --- !u!114 &114956991254958094
 MonoBehaviour:
   m_ObjectHideFlags: 1
