@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
     public void AnnounceDeath(int playerId)
     {
         print("YOU'VE GOT KNOCKED OUT");
-        announcer.clip = knockouts[playerId];
+        announcer.clip = knockouts[playerId-1];
         announcer.loop = false;
         announcer.Play();
 
