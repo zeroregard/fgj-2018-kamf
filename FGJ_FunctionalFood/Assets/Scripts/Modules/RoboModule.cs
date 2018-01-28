@@ -22,6 +22,16 @@ namespace MadLagBots
 
         public List<MeshRenderer> MeshesToColor;
 
+		[Header("Audio")]
+		[SerializeField] private AudioClip[] _turnings;
+		private int _turningIterator = 0;
+		[SerializeField] private AudioClip _move;
+		[SerializeField] private AudioClip _chargeAttack;
+
+		[SerializeField] private AudioSource _turnAudio;
+		[SerializeField] private AudioSource _moveAudio;
+		[SerializeField] private AudioSource _attackAudio;
+
         public void Start()
         {
             // move the center of mass a biiiit down
@@ -33,7 +43,7 @@ namespace MadLagBots
 
         public void Update()
         {
-            if (rb.position.y < -10)
+            if (rb.position.y < -10 || Mathf.Abs(rb.position.x) > 50 || Mathf.Abs(rb.position.z) > 50)
             {
                 HealthModule.Die();
             }
@@ -118,11 +128,21 @@ namespace MadLagBots
 
         public void Attack(InputType input)
         {
-            Weapon.TryAttack();
+            if(Weapon.TryAttack())
+			{
+				_attackAudio.clip = _chargeAttack;
+				_attackAudio.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+				_attackAudio.Play();
+			}
         }
 
         public void Turn(InputType input)
         {
+			var clip = _turnings[_turningIterator];
+			_turningIterator = (int)Mathf.Repeat(_turningIterator+1, _turnings.Length);
+			_turnAudio.clip = clip;
+			_turnAudio.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+			_turnAudio.Play();
             int dir = input == InputType.Left ? -1 : 1;
             rb.AddTorque(transform.up * torque * dir);
 
@@ -142,6 +162,9 @@ namespace MadLagBots
                 {
                     rb.velocity = rb.velocity * 0.95f;
                 }
+				_moveAudio.clip = _move;
+				_moveAudio.pitch = Mathf.Min(2, (rb.velocity.magnitude/16f + 0.85f)*UnityEngine.Random.Range(0.97f, 1.03f));
+				_moveAudio.Play();
             }
         }
 
