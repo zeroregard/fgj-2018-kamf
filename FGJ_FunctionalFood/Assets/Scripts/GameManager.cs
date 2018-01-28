@@ -33,6 +33,7 @@ namespace MadLagBots
                 playa.GetComponent<InputModule>().Player = p;
                 playa.SetColor(PlayerColors[p-1]);
                 UIManager.AddVisualizer(playa, PlayerColors[p-1]);
+  //              playa.GetComponent<HealthModule>().Die();
             }
         }
 

@@ -490,6 +490,12 @@ MonoBehaviour:
   ThemeSong: {fileID: 8300000, guid: 47533e2eee1b0479fb24ac5bd92e82c0, type: 3}
   AudioPlayerOne: {fileID: 133949255}
   AudioPlayerTwo: {fileID: 133949251}
+  knockouts:
+  - {fileID: 8300000, guid: 5638da879478f48648c7cba1b75bf47d, type: 3}
+  - {fileID: 8300000, guid: 25e69554cdd2a48968792d6950eba0ef, type: 3}
+  - {fileID: 8300000, guid: 90c91805ddbf14418a472c7f9856fd12, type: 3}
+  - {fileID: 8300000, guid: 0027ce10ee288455181256aa327f41aa, type: 3}
+  announcer: {fileID: 133949251}
 --- !u!82 &133949255
 AudioSource:
   m_ObjectHideFlags: 0
