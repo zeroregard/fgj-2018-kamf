@@ -8,6 +8,7 @@ namespace MadLagBots
     public class HurtBox : MonoBehaviour
     {
         [SerializeField] private HealthModule _self;
+		[SerializeField] private AudioSource _audio;
         public float Damage = 10;
         private bool _isHurting = false;
         private bool _canHurt = true;
@@ -35,6 +36,8 @@ namespace MadLagBots
                     var rb = col.gameObject.GetComponent<Rigidbody>();
                     if (rb != null)
                     {
+						_audio.pitch = UnityEngine.Random.Range(1.2f, 1.3f) - rb.mass*1.25f;
+						_audio.Play();
                         var localDir = transform.right;
                         rb.AddForce(-transform.TransformDirection(localDir.x, localDir.y, localDir.z) * PushForce, ForceMode.Force);
                     }
