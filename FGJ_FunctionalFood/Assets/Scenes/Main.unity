@@ -559,8 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3dde1c45bd1a425da9b4a1ec25e5960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroSong: {fileID: 8300000, guid: 15f0ce1f4882b47558e3fe5938839c38, type: 3}
-  ThemeSong: {fileID: 8300000, guid: 47533e2eee1b0479fb24ac5bd92e82c0, type: 3}
+  IntroSong: {fileID: 8300000, guid: ceb30cddb65c94feea260e4a31459759, type: 3}
+  ThemeSong: {fileID: 8300000, guid: c8302a0c596ef42d4bcbff997f107ab4, type: 3}
   AudioPlayerOne: {fileID: 133949255}
   AudioPlayerTwo: {fileID: 133949251}
   knockouts:
