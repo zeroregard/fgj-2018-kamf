@@ -233,7 +233,7 @@ InputManager:
     m_Name: Player4_Vertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: 9
     positiveButton: 3
     altNegativeButton: 
     altPositiveButton: 

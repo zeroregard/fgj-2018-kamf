@@ -20,15 +20,16 @@ namespace MadLagBots
         public InputModule InputModule => GetComponent<InputModule>();
         public HealthModule HealthModule => GetComponent<HealthModule>();
 
-		public List<MeshRenderer> MeshesToColor;
+        public List<MeshRenderer> MeshesToColor;
 
-		public void Start() {
-			// move the center of mass a biiiit down
-			// this very reliably prevents the thing from flipping over
-			// sometimes the thing might behave weirdly
-			// if it's too weird make it closer to 0, or just 0
-			rb.centerOfMass = new Vector3(0, -0.07f, 0);
-		}
+        public void Start()
+        {
+            // move the center of mass a biiiit down
+            // this very reliably prevents the thing from flipping over
+            // sometimes the thing might behave weirdly
+            // if it's too weird make it closer to 0, or just 0
+            rb.centerOfMass = new Vector3(0, -0.07f, 0);
+        }
 
         public void Update()
         {
@@ -36,30 +37,50 @@ namespace MadLagBots
             {
                 HealthModule.Die();
             }
+			FixUpsideDown();
         }
 
-		void FixUpsideDown()
-		{
-			var up = transform.up;
-			if(up.y < 0)
-			{
-				
-			}
-		}
+        void FixUpsideDown()
+        {
+            var rotation = transform.rotation.eulerAngles;
+            if (rotation.x < 270 && rotation.x > 90)
+            {
+                if (rotation.x < 180)
+                {
+                    rotation.x = 90;
+                }
+                else
+                {
+                    rotation.x = 270;
+                }
+            }
+            if (rotation.z < 270 && rotation.z > 90)
+            {
+                if (rotation.z < 180)
+                {
+                    rotation.z = 90;
+                }
+                else
+                {
+                    rotation.z = 270;
+                }
+            }
+			transform.rotation = Quaternion.Euler(rotation);
+        }
 
-		public void SetColor(Color color)
-		{
-			foreach(var m in MeshesToColor)
-			{
-				m.material.color = color;
-			}
-		}
+        public void SetColor(Color color)
+        {
+            foreach (var m in MeshesToColor)
+            {
+                m.material.color = color;
+            }
+        }
 
         public void DeathAnimation() // amazing tortouise animation
         {
             rb.isKinematic = true;
             transform
-                .DORotate(new Vector3(180,180,0), 1.5f, RotateMode.Fast)
+                .DORotate(new Vector3(180, 180, 0), 1.5f, RotateMode.Fast)
                 .SetEase(Ease.OutQuad);
         }
 
@@ -143,7 +164,7 @@ namespace MadLagBots
 
         public void ReduceMass()
         {
-            rb.mass = rb.mass * (2/3f);
+            rb.mass = rb.mass * (2 / 3f);
             InputModule.AdjustLag(rb.mass);
             sparkEmitter.Play();
         }
