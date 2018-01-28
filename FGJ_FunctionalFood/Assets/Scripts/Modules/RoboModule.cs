@@ -154,7 +154,7 @@ namespace MadLagBots
             {
                 var planeNormal = Vector3.up;
                 var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
-                var forwardNormalized = Vector3.Normalize(forwardInPlane);
+                var forwardNormalized = Vector3.Normalize(forwardInPlane) + (Vector3.up * 0.10f);
                 var thrustNormalized = t * rb.mass * dir;
 
                 rb.AddForce(forwardNormalized * thrustNormalized);
