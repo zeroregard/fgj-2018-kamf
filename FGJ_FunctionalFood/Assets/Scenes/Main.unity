@@ -564,10 +564,10 @@ MonoBehaviour:
   AudioPlayerOne: {fileID: 133949255}
   AudioPlayerTwo: {fileID: 133949251}
   knockouts:
-  - {fileID: 8300000, guid: 5638da879478f48648c7cba1b75bf47d, type: 3}
-  - {fileID: 8300000, guid: 25e69554cdd2a48968792d6950eba0ef, type: 3}
-  - {fileID: 8300000, guid: 90c91805ddbf14418a472c7f9856fd12, type: 3}
-  - {fileID: 8300000, guid: 0027ce10ee288455181256aa327f41aa, type: 3}
+  - {fileID: 8300000, guid: d0d68a4dbd546440ebbcfc891298bea8, type: 3}
+  - {fileID: 8300000, guid: 6e6973069d348425d9f5bb98ad687849, type: 3}
+  - {fileID: 8300000, guid: f4504f9e775884af6b993cd2055b761a, type: 3}
+  - {fileID: 8300000, guid: 355d1f378422449ef8bb8dea5fdaf374, type: 3}
   announcer: {fileID: 133949251}
 --- !u!82 &133949255
 AudioSource:
