@@ -13,6 +13,19 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> knockouts;
     
     public AudioSource announcer;
+    
+    // I couldn't find any List.shuffle method around
+    // Sombedy, please get rid of that madness
+    private void ShuffleKnockouts() {
+        int n = knockouts.Count;
+        while (n > 1) {
+            int k = (Random.Range(0, n));
+            n--;
+            AudioClip value = knockouts[k];
+            knockouts[k] = knockouts[n];
+            knockouts[n] = value;
+        }
+    }
 
     void Start()
     {   
@@ -20,6 +33,7 @@ public class AudioManager : MonoBehaviour
         AudioPlayerTwo.volume = 1.0f;
         announcer.volume = 0.7f;
         PlayMusic();
+        ShuffleKnockouts();
     }
     
     void PlayMusic() {
@@ -31,15 +45,10 @@ public class AudioManager : MonoBehaviour
         AudioPlayerTwo.PlayScheduled(AudioSettings.dspTime + IntroSong.length);    
     }
     
-    private AudioClip randomKnockout()
-    { 
-        return knockouts[Random.Range(0, 4)];
-    }
-    
-    public void AnnounceDeath()
+    public void AnnounceDeath(int playerId)
     {
         print("YOU'VE GOT KNOCKED OUT");
-        announcer.clip = randomKnockout();
+        announcer.clip = knockouts[playerId];
         announcer.loop = false;
         announcer.Play();
   

@@ -37,7 +37,7 @@ namespace MadLagBots
 			robo.DeathAnimation();
 			manager.PlayerDied (robo);
             var audioManager = FindObjectOfType<AudioManager>();
-            audioManager.AnnounceDeath();
+            audioManager.AnnounceDeath(robo.InputModule.Player);
             Destroy(gameObject);
 		}
 	}
