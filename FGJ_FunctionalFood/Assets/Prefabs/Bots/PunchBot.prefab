@@ -624,7 +624,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: aba38a7f6352b406ea38a914a38672f5, type: 3}
+  - {fileID: 2100010, guid: 98d913f2a144c40c2be268cc279487eb, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -814,7 +814,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1962644124249226}
-  m_Mesh: {fileID: 4300004, guid: aba38a7f6352b406ea38a914a38672f5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 34107cccf081d438a81804ee2983a920, type: 3}
 --- !u!33 &33687594967378782
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -864,7 +864,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300004, guid: aba38a7f6352b406ea38a914a38672f5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 34107cccf081d438a81804ee2983a920, type: 3}
 --- !u!65 &65069808770124224
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1354,7 +1354,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 526196928
+  randomSeed: 1946274053
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4715,7 +4715,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1317511583
+  randomSeed: -3450261
   InitialModule:
     serializedVersion: 3
     enabled: 1
