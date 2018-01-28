@@ -9,7 +9,7 @@ public class WeaponBase : MonoBehaviour
 	protected bool _canAttack = true;
 	protected float _cooldown = 2f;
 
-	public virtual void TryAttack()
+	public virtual bool TryAttack()
 	{
 		if(_canAttack)
 		{
@@ -19,7 +19,9 @@ public class WeaponBase : MonoBehaviour
 			{
 				_canAttack = true;
 			});
+			return true;
 		}
+		return false;
 	}
 
 	protected virtual void DoAttack()
