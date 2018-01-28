@@ -9,6 +9,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip ThemeSong;
     public AudioSource AudioPlayerOne;
 	public AudioSource AudioPlayerTwo;
+    
+    public List<AudioClip> knockouts;
+    
+    public AudioSource announcer;
 
     void Start()
     {
@@ -18,5 +22,19 @@ public class AudioManager : MonoBehaviour
 		AudioPlayerTwo.clip = ThemeSong;
 		AudioPlayerTwo.loop = true;
 		AudioPlayerTwo.PlayScheduled(AudioSettings.dspTime + IntroSong.length);
+    }
+    
+    private AudioClip randomKnockout()
+    { 
+        return knockouts[Random.Range(0, 4)];
+    }
+    
+    public void AnnounceDeath()
+    {
+        print("YOU'VE GOT KNOCKED OUT");
+        announcer.clip = randomKnockout();
+        announcer.loop = false;
+        announcer.Play();
+  
     }
 }

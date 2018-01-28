@@ -955,6 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _self: {fileID: 114863779918279284}
   Damage: 10
+  PushForce: 1
 --- !u!114 &114269677954416066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -971,6 +972,7 @@ MonoBehaviour:
   rb: {fileID: 54246622554813444}
   Weapon: {fileID: 114709792725758454}
   sparkEmitter: {fileID: 198806930223513690}
+  MeshesToColor: []
 --- !u!114 &114709792725758454
 MonoBehaviour:
   m_ObjectHideFlags: 1
