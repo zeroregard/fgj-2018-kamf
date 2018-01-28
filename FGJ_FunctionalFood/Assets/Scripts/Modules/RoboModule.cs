@@ -37,7 +37,7 @@ namespace MadLagBots
             {
                 HealthModule.Die();
             }
-			FixUpsideDown();
+            FixUpsideDown();
         }
 
         void FixUpsideDown()
@@ -65,7 +65,7 @@ namespace MadLagBots
                     rotation.z = 270;
                 }
             }
-			transform.rotation = Quaternion.Euler(rotation);
+            transform.rotation = Quaternion.Euler(rotation);
         }
 
         public void SetColor(Color color)
@@ -99,10 +99,10 @@ namespace MadLagBots
                         Attack(InputType.Attack);
                         break;
                     case InputType.Forward:
-                        Accelerate(InputType.Back);
+                        Move(thrust, 1);
                         break;
                     case InputType.Back:
-                        Reverse(InputType.Forward);
+                        Move(thrust*0.75f, -1);
                         break;
                     case InputType.Left:
                         Turn(InputType.Left);
@@ -119,7 +119,6 @@ namespace MadLagBots
         public void Attack(InputType input)
         {
             Weapon.TryAttack();
-
         }
 
         public void Turn(InputType input)
@@ -129,37 +128,21 @@ namespace MadLagBots
 
         }
 
-        void Forward(float t)
-        {
-            var planeNormal = Vector3.up;
-            var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
-            var forwardNormalized = Vector3.Normalize(forwardInPlane);
-            var thrustNormalized = t * rb.mass;
-
-            rb.AddForce(forwardNormalized * thrustNormalized);
-            if (rb.velocity.magnitude > _maxVelocity)
-            {
-                rb.velocity = rb.velocity * 0.95f;
-            }
-        }
-
-        public void Accelerate(InputType input)
+        void Move(float t, float dir)
         {
             if (rb.velocity.magnitude < _maxVelocity)
             {
-                Forward(thrust);
+                var planeNormal = Vector3.up;
+                var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
+                var forwardNormalized = Vector3.Normalize(forwardInPlane);
+                var thrustNormalized = t * rb.mass * dir;
+
+                rb.AddForce(forwardNormalized * thrustNormalized);
+                if (rb.velocity.magnitude > _maxVelocity)
+                {
+                    rb.velocity = rb.velocity * 0.95f;
+                }
             }
-        }
-
-        public void Reverse(InputType input)
-        {
-            var planeNormal = Vector3.up;
-            var forwardInPlane = Vector3.ProjectOnPlane(transform.forward, planeNormal);
-            var forwardNormalized = Vector3.Normalize(forwardInPlane);
-            var thrustNormalized = thrust * rb.mass * 0.5f;
-
-
-            rb.AddForce(-forwardNormalized * thrustNormalized);
         }
 
         public void ReduceMass()
