@@ -22,13 +22,30 @@ namespace MadLagBots
         void Start()
         {
             BeginGame();
+    
+        }
+
+        private void ShuffleTransforms() // uiks, wat
+        {
+            int n = _spawnPoints.Count;
+            while (n > 1)
+            {
+                int k = (Random.Range(0, n));
+                n--;
+                Transform value = _spawnPoints[k];
+                _spawnPoints[k] = _spawnPoints[n];
+                _spawnPoints[n] = value;
+            }
+            
         }
 
         void BeginGame()
         {
+            ShuffleTransforms(); // nooooo
             foreach (var p in Players)
             {
-                var playa = Instantiate(HammerBotPrefab, _spawnPoints[p - 1].position, Quaternion.identity);
+                var spawnPoint = _spawnPoints[p - 1].position;
+                var playa = Instantiate(HammerBotPrefab, spawnPoint, Quaternion.identity);
                 _playerInstances.Add(playa);
                 playa.GetComponent<InputModule>().Player = p;
                 playa.SetColor(PlayerColors[p-1]);
